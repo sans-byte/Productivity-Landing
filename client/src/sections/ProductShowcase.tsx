@@ -11,9 +11,9 @@ export const ProductShowcase = () => {
   return (
     <div className="bg-gradient-to-b from-[#eaeefe] to-[#5f8de46b] overflow-x-clip">
       <div className="container py-24">
-        <div className="max-w-[540px] mx-auto flex flex-col items-center justify-center text-center">
+        <div className="section-header">
           <div className="text-badge">Be More Productive</div>
-          <div className="text-4xl md:text-6xl header-text py-6">
+          <div className="section-heading">
             Track your progress effortlessly, Get things done quicker
           </div>
           <div>
