@@ -5,7 +5,7 @@ import Menu from "@/assets/menu.svg";
 
 export const Header = () => {
   return (
-    <header className="sticky top-0">
+    <header className="sticky top-0 backdrop-blur-sm z-20">
       <div className="flex justify-center items-center bg-black text-white py-3">
         <div className="inline-flex gap-1 items-center">
           <p>
@@ -17,7 +17,7 @@ export const Header = () => {
           <ArrowRight className="h-4 w-4 inline-flex justify-center items-center" />
         </div>
       </div>
-      <div className="flex justify-between items-center container py-5 ">
+      <div className="flex justify-between items-center container py-5">
         <Image
           src={Logo}
           height={50}
