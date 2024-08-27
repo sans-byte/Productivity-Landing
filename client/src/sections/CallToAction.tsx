@@ -1,8 +1,16 @@
+"use client";
 import ArrowRight from "@/assets/arrow-right.svg";
-import Image from "next/image";
 import Cloud from "@/assets/Cloud.png";
 import Plant from "@/assets/Plant.png";
+import { motion, useScroll, useTransform } from "framer-motion";
+import { useRef } from "react";
 export const CallToAction = () => {
+  const sectionRef = useRef(null);
+  const { scrollYProgress } = useScroll({
+    target: sectionRef,
+    offset: ["start end", "end start"],
+  });
+  const translateY = useTransform(scrollYProgress, [0, 1], [-150, 150]);
   return (
     <section className="py-24">
       <div className="overflow-x-clip">
@@ -24,17 +32,23 @@ export const CallToAction = () => {
             </div>
           </div>
           <div className="hidden md:block">
-            <Image
-              src={Cloud}
+            <motion.img
+              src={Cloud.src}
               alt="cloud"
-              width={400}
-              className="absolute top-0 right-[-100px] max-lg:right-[-230px]"
+              width={500}
+              className="absolute bottom-[-100px] right-[-100px] max-lg:right-[-230px]"
+              style={{
+                translateY,
+              }}
             />
-            <Image
-              src={Plant}
+            <motion.img
+              src={Plant.src}
               alt="plant"
-              width={400}
-              className="absolute top-[-200px] left-[-100px] max-lg:left-[-200px]"
+              width={500}
+              className="absolute top-[-300px] left-[-100px] max-lg:left-[-200px]"
+              style={{
+                translateY,
+              }}
             />
           </div>
         </div>
