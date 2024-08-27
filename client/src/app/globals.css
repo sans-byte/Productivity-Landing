@@ -38,4 +38,7 @@
   .section-heading {
     @apply text-4xl md:text-6xl header-text py-6;
   }
+  li {
+    @apply cursor-pointer;
+  }
 }

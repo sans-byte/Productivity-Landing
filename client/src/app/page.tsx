@@ -1,4 +1,6 @@
 import { CallToAction } from "@/sections/CallToAction";
+import FeatureShowcase from "@/sections/FeatureShowcase";
+import { Footer } from "@/sections/Footer";
 import { Header } from "@/sections/Header";
 import { Hero } from "@/sections/Hero";
 import { LogoTicker } from "@/sections/LogoTicker";
@@ -13,9 +15,11 @@ export default function Home() {
       <Hero />
       <LogoTicker />
       <ProductShowcase />
+      <FeatureShowcase />
       <Pricing />
       <Testimonials />
       <CallToAction />
+      <Footer />
     </div>
   );
 }
