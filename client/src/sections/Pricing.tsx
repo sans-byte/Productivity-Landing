@@ -1,4 +1,6 @@
+"use client";
 import Tick from "@/assets/check.svg";
+import { motion } from "framer-motion";
 
 const pricingTiers = [
   {
@@ -84,8 +86,21 @@ export const Pricing = () => {
                     {title}
                   </h3>
                   {popular && (
-                    <div className="text-badge border-slate-800 bg-[linear-gradient(to_right,#DD7DDf,#e1cd86,#bbcb92,#71c2ef,#3bffff,#dd7ddf)] text-transparent bg-clip-text font-medium">
-                      Most Popular
+                    <div className="text-badge border-slate-800 ">
+                      <motion.span
+                        className="bg-[linear-gradient(to_right,#DD7DDf,#e1cd86,#bbcb92,#71c2ef,#3bffff,#dd7ddf,#DD7DDf,#e1cd86,#bbcb92,#71c2ef,#3bffff)] [background-size:200%] text-transparent bg-clip-text font-medium"
+                        animate={{
+                          backgroundPositionX: "-200%",
+                        }}
+                        transition={{
+                          repeat: Infinity,
+                          repeatType: "loop",
+                          duration: 2,
+                          ease: "linear",
+                        }}
+                      >
+                        Most Popular
+                      </motion.span>
                     </div>
                   )}
                 </div>
