@@ -106,7 +106,7 @@ export const Testimonials = () => {
   return (
     <section>
       <div>
-        <div className="container">
+        <div className="container pb-24">
           <div className="section-header">
             <div className="text-badge">Testimonials</div>
             <div className="section-heading">What our users say</div>
