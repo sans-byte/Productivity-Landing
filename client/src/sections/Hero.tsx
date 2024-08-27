@@ -5,13 +5,11 @@ import Screw from "@/assets/Screw.png";
 import Bulb from "@/assets/Light Bulb.png";
 export const Hero = () => {
   return (
-    <section className="pt-8 pb-20 md:pt-5 md:pb-10 bg-[radial-gradient(ellipse_200%_100%_at_bottom_left,#3573dc,#eaeefe_100%)] overflow-x-clip">
+    <section className="section-gradient-bg">
       <div className="container md:flex items-center">
         <div className="md:flex-1">
-          <div className="px-4 py-1 text-sm border-black/10 rounded-full border inline-flex tracking-tight">
-            Version 3.0 is here
-          </div>
-          <h1 className="text-6xl md:text-8xl font-bold tracking-tighter bg-gradient-to-b from-black to-blue-500 text-transparent bg-clip-text mt-6 md:w-[438px]">
+          <div className="text-badge">Version 3.0 is here</div>
+          <h1 className="text-6xl md:text-8xl header-text mt-6 md:w-[438px]">
             Focus On Forward
           </h1>
           <p className="text-xl tracking-tight mt-6">

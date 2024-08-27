@@ -18,4 +18,16 @@
   .logo-image {
     @apply h-8 w-auto;
   }
+
+  .text-badge {
+    @apply px-4 py-1 text-sm border-black/10 rounded-full border inline-flex tracking-tight;
+  }
+
+  .header-text {
+    @apply font-bold tracking-tighter bg-gradient-to-b from-black to-blue-500 text-transparent bg-clip-text;
+  }
+
+  .section-gradient-bg {
+    @apply pt-8 pb-20 md:pt-5 md:pb-10 bg-[radial-gradient(ellipse_200%_100%_at_bottom_left,#3573dc,#eaeefe_100%)] overflow-x-clip;
+  }
 }

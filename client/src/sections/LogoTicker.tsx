@@ -8,9 +8,9 @@ import Image from "next/image";
 
 export const LogoTicker = () => {
   return (
-    <div className="container">
+    <div className="container py-8 md:py-12">
       <div className="flex overflow-hidden [mask-image:linear-gradient(to_right,transparent,black,transparent)]">
-        <div className="flex gap-14 justify-center items-center p-8 ">
+        <div className="flex gap-14 justify-center items-center">
           <Image src={Adobe} width={140} alt="Adobe" className="logo-image" />
           <Image
             src={Atlassian}
