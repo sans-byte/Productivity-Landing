@@ -1,3 +1,4 @@
+"use client";
 import avatar1 from "@/assets/avatar-1.png";
 import avatar2 from "@/assets/avatar-2.png";
 import avatar3 from "@/assets/avatar-3.png";
@@ -7,6 +8,7 @@ import avatar6 from "@/assets/avatar-6.png";
 import avatar7 from "@/assets/avatar-7.png";
 import avatar8 from "@/assets/avatar-8.png";
 import avatar9 from "@/assets/avatar-9.png";
+import { motion } from "framer-motion";
 import Image from "next/image";
 
 interface Testimonials {
@@ -73,29 +75,49 @@ const testimonials: Testimonials[] = [
   },
 ];
 
-const TestimonialsComponent = ({ column }: { column: Testimonials[] }) => {
+const TestimonialsComponent = ({
+  column,
+  duration,
+}: {
+  column: Testimonials[];
+  duration?: number;
+}) => {
   return (
-    <div>
-      {column.map((testimonial, index) => (
-        <div key={index} className="py-2 md:py-2">
-          <div className="rounded-2xl shadow-lg p-8 bg-white">
-            <p>{testimonial.text}</p>
-            <div className="py-3 flex gap-2">
-              <Image
-                src={testimonial.imageSrc}
-                alt="avatar"
-                width={50}
-                height={50}
-              />
-              <div>
-                <div className="font-semibold">{testimonial.name}</div>
-                <div>{testimonial.username}</div>
+    <motion.div
+      animate={{
+        translateY: "-50%",
+      }}
+      transition={{
+        repeat: Infinity,
+        repeatType: "loop",
+        ease: "linear",
+        duration,
+      }}
+    >
+      {[...new Array(2)].map((_, index) => (
+        <div key={index}>
+          {column.map((testimonial, index) => (
+            <div key={index} className="py-2">
+              <div className="rounded-2xl shadow-lg p-8 bg-white">
+                <p>{testimonial.text}</p>
+                <div className="py-3 flex gap-2">
+                  <Image
+                    src={testimonial.imageSrc}
+                    alt="avatar"
+                    width={50}
+                    height={50}
+                  />
+                  <div>
+                    <div className="font-semibold">{testimonial.name}</div>
+                    <div>{testimonial.username}</div>
+                  </div>
+                </div>
               </div>
             </div>
-          </div>
+          ))}
         </div>
       ))}
-    </div>
+    </motion.div>
   );
 };
 
@@ -105,30 +127,28 @@ export const Testimonials = () => {
   const thirdColumn = testimonials.slice(6, 9);
   return (
     <section>
-      <div>
-        <div className="container pb-24">
-          <div className="section-header">
-            <div className="text-badge">Testimonials</div>
-            <div className="section-heading">What our users say</div>
-            <div>
-              <p className="py-4 pb-12">
-                Out product is revolutionizing the way people work, empowering
-                individuals to achieve more in less time. With its intuitive
-                tools and features, it's transforming productivity worldwide.
-                Experience the future of work, today.
-              </p>
-            </div>
+      <div className="container">
+        <div className="section-header">
+          <div className="text-badge">Testimonials</div>
+          <div className="section-heading">What our users say</div>
+          <div>
+            <p className="py-4 pb-12">
+              Out product is revolutionizing the way people work, empowering
+              individuals to achieve more in less time. With its intuitive tools
+              and features, it's transforming productivity worldwide. Experience
+              the future of work, today.
+            </p>
           </div>
-          <div className="md:columns-2 lg:columns-3 [mask-image:linear-gradient(to_bottom,transparent,black_25%,black_75%,transparent)]">
-            <div>
-              <TestimonialsComponent column={firstColumn} />
-            </div>
-            <div className="hidden md:block">
-              <TestimonialsComponent column={secontColumn} />
-            </div>
-            <div className="hidden lg:block">
-              <TestimonialsComponent column={thirdColumn} />
-            </div>
+        </div>
+        <div className="md:columns-2 lg:columns-3 flex-none [mask-image:linear-gradient(to_bottom,transparent,black_25%,black_75%,transparent)]">
+          <div>
+            <TestimonialsComponent column={firstColumn} duration={15} />
+          </div>
+          <div className="hidden md:block">
+            <TestimonialsComponent column={secontColumn} duration={17} />
+          </div>
+          <div className="hidden lg:block">
+            <TestimonialsComponent column={thirdColumn} duration={20} />
           </div>
         </div>
       </div>
