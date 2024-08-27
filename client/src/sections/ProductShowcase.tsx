@@ -1,3 +1,4 @@
+"use client";
 import Image from "next/image";
 import ArrowRight from "@/assets/arrow-right.svg";
 import Product from "@/assets/product.png";
@@ -7,9 +8,21 @@ import Task from "@/assets/task.svg";
 import Time from "@/assets/time.svg";
 import Focus from "@/assets/focus.svg";
 import Goal from "@/assets/goal.svg";
+import { motion, useScroll, useTransform } from "framer-motion";
+import { useRef } from "react";
 export const ProductShowcase = () => {
+  const productShowcaseRef = useRef(null);
+  const { scrollYProgress } = useScroll({
+    target: productShowcaseRef,
+    offset: ["start end", "end start"],
+  });
+
+  const translateY = useTransform(scrollYProgress, [0, 1], [-150, 150]);
   return (
-    <div className="bg-gradient-to-b from-[#eaeefe] to-[#5f8de46b] overflow-x-clip">
+    <div
+      ref={productShowcaseRef}
+      className="bg-gradient-to-b from-[#eaeefe] to-[#5f8de46b] overflow-x-clip"
+    >
       <div className="container py-24">
         <div className="section-header">
           <div className="text-badge">Be More Productive</div>
@@ -25,19 +38,25 @@ export const ProductShowcase = () => {
         <div className="relative">
           <Image src={Product} alt="product" className="py-12" />
           <div className="hidden md:block">
-            <Image
-              src={Lock}
+            <motion.img
+              src={Lock.src}
               alt="lock"
-              height={240}
-              width={240}
+              height={280}
+              width={280}
               className="absolute bottom-20 lg:bottom-52 left-[-140px]"
+              style={{
+                translateY,
+              }}
             />
-            <Image
-              src={Sheild}
+            <motion.img
+              src={Sheild.src}
               alt="=shield"
-              height={240}
-              width={240}
+              height={280}
+              width={280}
               className="absolute top-0 lg:top-20 right-[-100px]"
+              style={{
+                translateY,
+              }}
             />
           </div>
         </div>
